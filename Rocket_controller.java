@@ -64,18 +64,18 @@ public class Rocket_controller {
              // Set floor on scenario
              this.columnsList.get(1).elevatorsList.get(0).currentFloor = 20;
              this.columnsList.get(1).elevatorsList.get(1).currentFloor = 3;
-             this.columnsList.get(1).elevatorsList.get(1).currentFloor = 13;
-             this.columnsList.get(1).elevatorsList.get(1).currentFloor = 15;
-             this.columnsList.get(1).elevatorsList.get(1).currentFloor = 6;
+             this.columnsList.get(1).elevatorsList.get(2).currentFloor = 13;
+             this.columnsList.get(1).elevatorsList.get(3).currentFloor = 15;
+             this.columnsList.get(1).elevatorsList.get(4).currentFloor = 6;
 
-            // find best column
+            // find best elevator
 
             for (int i = 0; i < this.amountOfElevatorPerColumn; i++)
             {
-                if (selectedColumn.elevatorsList.get(1).currentFloor == _requestedFloor)
+                if (selectedColumn.elevatorsList.get(i).currentFloor == _requestedFloor)
                 {
                     int[] floorRequestList = new int[]{_requestedFloor};
-                    selectedColumn.elevatorsList.get(1).floorRequestList = floorRequestList;
+                    selectedColumn.elevatorsList.get(i).floorRequestList = floorRequestList;
                     selectedColumn.status = "busy";
                     break;
                 }
@@ -286,7 +286,7 @@ public class Rocket_controller {
                         System.out.println("The door is " + this.elevatorsList.get(i).Door.status);  
                         var selectedElevator = this.elevatorsList.get(i);
                         selectedElevator.direction = "up";
-                         System.out.println("Elevator " + this.elevatorsList.get(i).ID + " is " + this.elevatorsList.get(i).status + ' ' + this.elevatorsList.get(i).direction);
+                        System.out.println("Elevator " + this.elevatorsList.get(i).ID + " is " + this.elevatorsList.get(i).status + ' ' + this.elevatorsList.get(i).direction);
                         for (int x = selectedElevator.currentFloor; x < _requestedFloor; x++)
                         {
                             selectedElevator.currentFloor = selectedElevator.currentFloor + 1;
@@ -382,7 +382,7 @@ public class Rocket_controller {
     
     public static void main(String[] args) {
         Battery battery1 = new Battery(1, 4, 60, 6, 5);
-        battery1.assignElevator(10, "up");
+        battery1.assignElevator(14, "up");
         battery1.columnsList.get(1).requestElevator(0, "down");
     }
 

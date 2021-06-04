@@ -1,6 +1,6 @@
 
 import java.util.ArrayList;
-public class Rocket_controller {
+public class Rocket_Elevators_Java_Controller {
 
     public static class Battery {
         public int ID;
